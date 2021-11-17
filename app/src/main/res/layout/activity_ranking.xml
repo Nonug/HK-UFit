@@ -4,13 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:visibility="visible"
-    tools:context=".MainActivity"
-    tools:visibility="visible">
+    tools:context=".Ranking">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="358dp"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
@@ -66,11 +64,11 @@
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/quicksand_light"
-        android:text="Tell your friends about your workout !"
+        android:text="Top 10 users"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -80,91 +78,59 @@
         app:layout_constraintVertical_bias="0.132" />
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbar2"
         android:layout_width="362dp"
         android:layout_height="65dp"
-        android:layout_marginBottom="3dp"
+        android:layout_marginBottom="16dp"
         android:background="@color/fitness"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:title="Share a Post"
-        app:titleMarginStart="120dp"
-        app:titleTextColor="#FFFFFF" />
+        app:title="Ranking"
+        app:titleMarginStart="150dp"
+        app:titleTextColor="#E1FFFFFF" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        android:fontFamily="@font/quicksand_light"
-        android:gravity="center"
-        android:text="Share a Post"
-        android:textColor="#FFFFFF"
-        android:textFontWeight="18"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/TITLE"
-        android:layout_width="298dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="57dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="22dp"
-        android:background="@drawable/ripple"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Title"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/CONTENT"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/CONTENT"
-        android:layout_width="304dp"
-        android:layout_height="280dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="52dp"
-        android:background="@drawable/ripple"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Content"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TITLE" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button7"
-        android:layout_width="183dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="105dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="95dp"
-        android:layout_marginBottom="115dp"
-        android:background="@drawable/ripple2"
-        android:bottomLeftRadius="15dp"
-        android:bottomRightRadius="15dp"
-        android:radius="10dp"
-        android:text="Post"
-        android:textColor="#FFFFFF"
+    <TableLayout
+        android:id="@+id/TABLE"
+        android:layout_width="362dp"
+        android:layout_height="430dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="13dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.588"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CONTENT" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+        <TableRow
+            android:layout_width="387dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="112dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="3dip"
+                android:text="User" />
+
+            <TextView
+                android:layout_width="111dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="3dip"
+                android:text="Distance" />
+
+            <TextView
+                android:layout_width="138dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="3dip"
+                android:text="Calories" />
+        </TableRow>
+
+
+    </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
