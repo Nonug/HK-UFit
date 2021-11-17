@@ -11,12 +11,14 @@ import {
     Heading,
     VStack,
     HStack,
-    Pressable
+    Pressable,
+    ScrollView
 } from "native-base";
 import { GivenNameText } from "../components/InfoText";
 
-export const Cards = () => {
+export const Cards = ({ navigation }) => {
     return (
+        <ScrollView>
         <Center mt="4">
             <Box
                 maxW="90%"
@@ -67,7 +69,10 @@ export const Cards = () => {
             <Center>
                 <VStack mt="4" mx="4" maxW="90%" space="2">
                     <HStack alignItems="center">
-                        <Box w="50%" h="120" p="1">
+                        <Pressable w="50%" h="120" p="1" onPress={() => {
+                                    // navigation.navigate();
+                                    alert("Progress Monitoring")
+                                }}>
                             <Image
                                 h="100%"
                                 rounded="lg"
@@ -76,14 +81,17 @@ export const Cards = () => {
                             />
                             <Center
                                 position="absolute"
-                                top="10"
+                                top="8"
                                 px="5"
                                 py="1.5"
                             >
-                                <Text color="white">Monitoring</Text>
+                                <Text color="white">Progress Monitoring</Text>
                             </Center>
-                        </Box>
-                        <Box w="50%" h="120" p="1">
+                        </Pressable>
+                        <Pressable w="50%" h="120" p="1" onPress={() => {
+                                    // navigation.navigate();
+                                    alert("Facilities Booking")
+                                }}>
                             <Image
                                 h="100%"
                                 rounded="lg"
@@ -100,10 +108,13 @@ export const Cards = () => {
                                     Facilities{"\n"}Booking
                                 </Text>
                             </Center>
-                        </Box>
+                        </Pressable>
                     </HStack>
                     <HStack alignItems="center">
-                        <Box w="50%" h="120" p="1">
+                        <Pressable w="50%" h="120" p="1" onPress={() => {
+                                    // navigation.navigate();
+                                    alert("Social Networking")
+                                }}>
                             <Image
                                 h="100%"
                                 rounded="lg"
@@ -115,8 +126,11 @@ export const Cards = () => {
                                     Social{"\n"}Networking
                                 </Text>
                             </Center>
-                        </Box>
-                        <Box w="50%" h="120" p="1">
+                        </Pressable>
+                        <Pressable w="50%" h="120" p="1" onPress={() => {
+                                    // navigation.navigate();
+                                    alert("Routines")
+                                }}>
                             <Image
                                 h="100%"
                                 rounded="lg"
@@ -129,13 +143,14 @@ export const Cards = () => {
                                 px="5"
                                 py="1.5"
                             >
-                                <Text color="white">Progress</Text>
+                                <Text color="white">Routines</Text>
                             </Center>
-                        </Box>
+                        </Pressable>
                     </HStack>
                 </VStack>
             </Center>
         </Center>
+        </ScrollView>
     );
 };
 
@@ -144,7 +159,7 @@ export default function Home({ navigation }) {
     return (
         <>
             <NativeBaseProvider>
-                <Cards/>
+                <Cards/> 
             </NativeBaseProvider>
         </>
     );
