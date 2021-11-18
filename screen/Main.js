@@ -1,10 +1,11 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import HomeScreen from './HomeScreen'
+import HomeScreen from './HomeScreen';
 import FacilitiesScreen from './FacilitiesScreen';
 import ProgressScreen from './ProgressScreen';
 import SocialScreen from './SocialScreen';
 import SettingScreen from "./SettingsScreen";
+import RoutineScreen from "./RoutineScreen";
 import {
     MaterialIcons,
     Ionicons,
@@ -74,6 +75,17 @@ export default Main = () => {
                     tabBarLabel: "Social",
                     tabBarIcon: ({ color, size }) => (
                         <Ionicons name="people" color={color} size={size} />
+                    ),
+                }}
+            />
+            <Tab.Screen
+                name="Routine"
+                component={RoutineScreen}
+                options={{
+                    title: "Routine",
+                    tabBarLabel: "Routine",
+                    tabBarIcon: ({ color, size }) => (
+                        <Ionicons name="barbell" color={color} size={size} />
                     ),
                 }}
             />

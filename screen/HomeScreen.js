@@ -70,8 +70,7 @@ export const Cards = ({ navigation }) => {
                 <VStack mt="4" mx="4" maxW="90%" space="2">
                     <HStack alignItems="center">
                         <Pressable w="50%" h="120" p="1" onPress={() => {
-                                    // navigation.navigate();
-                                    alert("Progress Monitoring")
+                                    navigation.navigate('Progress');
                                 }}>
                             <Image
                                 h="100%"
@@ -89,8 +88,7 @@ export const Cards = ({ navigation }) => {
                             </Center>
                         </Pressable>
                         <Pressable w="50%" h="120" p="1" onPress={() => {
-                                    // navigation.navigate();
-                                    alert("Facilities Booking")
+                                    navigation.navigate('Facilities');
                                 }}>
                             <Image
                                 h="100%"
@@ -112,8 +110,7 @@ export const Cards = ({ navigation }) => {
                     </HStack>
                     <HStack alignItems="center">
                         <Pressable w="50%" h="120" p="1" onPress={() => {
-                                    // navigation.navigate();
-                                    alert("Social Networking")
+                                    navigation.navigate('Social');
                                 }}>
                             <Image
                                 h="100%"
@@ -128,8 +125,7 @@ export const Cards = ({ navigation }) => {
                             </Center>
                         </Pressable>
                         <Pressable w="50%" h="120" p="1" onPress={() => {
-                                    // navigation.navigate();
-                                    alert("Routines")
+                                    navigation.navigate('Routine');
                                 }}>
                             <Image
                                 h="100%"
@@ -159,7 +155,7 @@ export default function Home({ navigation }) {
     return (
         <>
             <NativeBaseProvider>
-                <Cards/> 
+                <Cards navigation={navigation}/> 
             </NativeBaseProvider>
         </>
     );
