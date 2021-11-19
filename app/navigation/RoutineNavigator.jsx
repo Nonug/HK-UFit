@@ -2,8 +2,8 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Platform } from "react-native";
 import Routes from "./routes";
-import ExploreScreen from "../../screen/ExploreScreen";
-import RoutineDetailsScreen from "../../screen/RoutineDetailScreen";
+import ExploreScreen from "../screen/ExploreScreen";
+import RoutineDetailsScreen from "../screen/RoutineDetailScreen";
 
 const Stack = createStackNavigator();
 

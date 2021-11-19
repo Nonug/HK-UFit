@@ -14,7 +14,7 @@ import {
     Pressable,
     ScrollView
 } from "native-base";
-import { GivenNameText } from "../app/components/InfoText";
+import { GivenNameText } from "../components/InfoText";
 
 export const Cards = ({ navigation }) => {
     return (

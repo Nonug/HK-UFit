@@ -14,9 +14,9 @@ import {
   Button,
 } from "native-base";
 
-import RoutineCard from "../app/components/RoutineCard";
-import RadioButton from "../app/components/RadioButton";
-import RoutineList from "../app/components/RoutineList";
+import RoutineCard from "../components/RoutineCard";
+import RadioButton from "../components/RadioButton";
+import RoutineList from "../components/RoutineList";
 
 export default function RoutineDetails({ route }) {
   const { _id, videoID, title } = route.params;

@@ -11,10 +11,10 @@ import {
   View,
   FlatList,
 } from "native-base";
-import RoutineCard from "../app/components/RoutineCard";
-import RadioButton from "../app/components/RadioButton";
-import RoutineList from "../app/components/RoutineList";
-import Routes from "../app/navigation/routes";
+import RoutineCard from "../components/RoutineCard";
+import RadioButton from "../components/RadioButton";
+import RoutineList from "../components/RoutineList";
+import Routes from "../navigation/routes";
 
 export default function Explore({ navigation }) {
   // Routine category hook

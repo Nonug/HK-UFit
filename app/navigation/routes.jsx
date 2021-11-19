@@ -1,6 +1,6 @@
 const Routes = Object.freeze({
   EXPLORE_ROUTINES: "Explore Routines",
-  ROUTINE_DETAILS: "RoutineDetails",
+  ROUTINE_DETAILS: "Routine Details",
   SOCIAL: "Social",
   PROGRESS: "Progress",
   //   ACCOUNT: "Account",

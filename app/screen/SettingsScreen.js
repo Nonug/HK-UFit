@@ -16,7 +16,7 @@ import {
     Icon,
     Pressable
 } from "native-base";
-import { AuthContext } from "../App";
+import { AuthContext } from "../../App";
 import * as SecureStore from "expo-secure-store";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 

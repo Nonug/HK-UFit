@@ -2,9 +2,9 @@ import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import * as SecureStore from "expo-secure-store";
-import LoginScreen from "./screen/LoginScreen";
-import SplashScreen from "./screen/SplashScreen";
-import Main from "./screen/Main";
+import LoginScreen from "./app/screen/LoginScreen";
+import SplashScreen from "./app/screen/SplashScreen";
+import Main from "./app/screen/Main";
 import { XHttp } from 'react-native-easy-app';
 
 const Stack = createStackNavigator();
