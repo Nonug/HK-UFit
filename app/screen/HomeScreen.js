@@ -14,7 +14,7 @@ import {
     Pressable,
     ScrollView
 } from "native-base";
-import { GivenNameText } from "../components/InfoText";
+import { GivenNameText } from "../app/components/InfoText";
 
 export const Cards = ({ navigation }) => {
     return (
@@ -125,7 +125,7 @@ export const Cards = ({ navigation }) => {
                             </Center>
                         </Pressable>
                         <Pressable w="50%" h="120" p="1" onPress={() => {
-                                    navigation.navigate('Routine');
+                                    navigation.navigate('Routines');
                                 }}>
                             <Image
                                 h="100%"

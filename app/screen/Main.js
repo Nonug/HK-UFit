@@ -1,16 +1,19 @@
 import React from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import HomeScreen from './HomeScreen';
-import FacilitiesScreen from './FacilitiesScreen';
-import ProgressScreen from './ProgressScreen';
-import SocialScreen from './SocialScreen';
-import SettingScreen from "./SettingsScreen";
-import RoutineScreen from "./RoutineScreen";
 import {
     MaterialIcons,
     Ionicons,
     MaterialCommunityIcons,
 } from "@expo/vector-icons";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+import HomeScreen from './HomeScreen';
+import FacilitiesScreen from './FacilitiesScreen';
+import ProgressScreen from './ProgressScreen';
+import SocialScreen from './SocialScreen';
+import SettingsScreen from './SettingsScreen';
+
+import RoutineNavigator from "../navigation/RoutineNavigator";
+import Routes from "../navigation/routes";
 
 const Tab = createBottomTabNavigator();
 
@@ -78,12 +81,13 @@ export default Main = () => {
                     ),
                 }}
             />
-            <Tab.Screen
-                name="Routine"
-                component={RoutineScreen}
+            <Tab.Screen 
+                name="Routines"
+                component={RoutineNavigator}
                 options={{
-                    title: "Routine",
-                    tabBarLabel: "Routine",
+                    title: "Routines",
+                    tabBarLabel: "Routines",
+                    headerShown: false,
                     tabBarIcon: ({ color, size }) => (
                         <Ionicons name="barbell" color={color} size={size} />
                     ),
@@ -91,7 +95,7 @@ export default Main = () => {
             />
             <Tab.Screen
                 name="Settings"
-                component={SettingScreen}
+                component={SettingsScreen}
                 options={{
                     title: "Settings",
                     tabBarLabel: "Settings",
