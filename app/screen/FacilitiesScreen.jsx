@@ -2,6 +2,9 @@ import * as React from "react";
 import { NativeBaseProvider, HStack,
     Text, Button, Box, Center, Image, Divider, VStack } from "native-base";
 import { useState, useEffect } from "react";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+import { TestScreen } from './Facilities/AvaliableFacilities'
 
 export const HeaderCard = () => {
     return (
@@ -21,7 +24,7 @@ export const HeaderCard = () => {
     );
 };
 
-export function ScorllMenu(){
+export function ScorllMenu({ navigation }){
 
     const [isLoading, setLoading] = useState(true);
     const [gymData, setGymData] = useState([]);
@@ -89,6 +92,7 @@ export function ScorllMenu(){
                                                 h="8"
                                                 w="50"
                                                 size="sm"
+                                                onPress={() => navigation.navigate("Test")}
                                             >
                                                 Book
                                             </Button>
@@ -104,15 +108,33 @@ export function ScorllMenu(){
     );
 }
 
-
-export default function Facilities({ navigation }) {
+export function FacilitiesScreen({ navigation }){
     return (
         <NativeBaseProvider>
             <Center mt="4">
-                <HeaderCard/>
-                <Divider w="90%" mt="4" thickness="2"/>
-                <ScorllMenu/>
+                <HeaderCard />
+                <Divider w="90%" mt="4" thickness="2" />
+                <ScorllMenu navigation={navigation}/>
             </Center>
+
         </NativeBaseProvider>
     );
+}
+
+export default function Facilities({ navigation }) {
+    const Stack = createStackNavigator();
+
+    return (
+        <>
+            <Stack.Navigator
+                initialRouteName="Facilities"
+                headerShown = 'false'
+            >
+                <Stack.Screen name="Test" component={TestScreen}/>
+                <Stack.Screen name="Facilities" component={FacilitiesScreen}/>
+            </Stack.Navigator>
+        </>
+    );
 };
+
+
