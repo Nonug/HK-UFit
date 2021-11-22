@@ -46,6 +46,7 @@ export default Main = () => {
                 options={{
                     title: "Facilities Booking",
                     tabBarLabel: "Facility",
+                    headerShown: false,
                     tabBarIcon: ({ color, size }) => (
                         <MaterialIcons
                             name="sports-tennis"
