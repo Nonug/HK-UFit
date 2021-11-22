@@ -6,6 +6,7 @@ import LoginScreen from "./app/screen/LoginScreen";
 import SplashScreen from "./app/screen/SplashScreen";
 import Main from "./app/screen/Main";
 import { XHttp } from 'react-native-easy-app';
+import "react-native-gesture-handler";
 
 const Stack = createStackNavigator();
 

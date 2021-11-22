@@ -4,7 +4,7 @@ import { NativeBaseProvider, HStack,
 import { useState, useEffect } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
-import { TestScreen } from './Facilities/AvaliableFacilities'
+import { AvaliableScreen } from './Facilities/AvaliableFacilities'
 
 export const HeaderCard = () => {
     return (
@@ -92,7 +92,14 @@ export function ScorllMenu({ navigation }){
                                                 h="8"
                                                 w="50"
                                                 size="sm"
-                                                onPress={() => navigation.navigate("Test")}
+                                                onPress={
+                                                    () => {
+                                                        navigation.navigate("Avaliable Facilities", {
+                                                            gymId: item.id,
+                                                            gymName: item.name
+                                                        })
+                                                    }
+                                                }
                                             >
                                                 Book
                                             </Button>
@@ -108,7 +115,7 @@ export function ScorllMenu({ navigation }){
     );
 }
 
-export function FacilitiesScreen({ navigation }){
+export function Facilities({ navigation }){
     return (
         <NativeBaseProvider>
             <Center mt="4">
@@ -121,17 +128,23 @@ export function FacilitiesScreen({ navigation }){
     );
 }
 
-export default function Facilities({ navigation }) {
+export default function FacilitiesScreen({ navigation }) {
     const Stack = createStackNavigator();
 
     return (
         <>
             <Stack.Navigator
-                initialRouteName="Facilities"
+                initialRouteName="FindFacilities"
                 headerShown = 'false'
             >
-                <Stack.Screen name="Test" component={TestScreen}/>
-                <Stack.Screen name="Facilities" component={FacilitiesScreen}/>
+                <Stack.Screen name="Avaliable Facilities" component={AvaliableScreen}/>
+                <Stack.Screen
+                    name="FindFacilities"
+                    component={Facilities}
+                    options={{
+                        title: "Facilities Booking"
+                    }}
+                />
             </Stack.Navigator>
         </>
     );
