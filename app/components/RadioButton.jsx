@@ -17,6 +17,7 @@ export default function RadioButton({ data, onSelect }) {
       {data.map((item) => {
         return (
           <Pressable
+            key={item.id} // Dk why still get "Warning: Each child in a list should have a unique "key" prop."
             style={
               item.value === userOption ? styles.selected : styles.unselected
             }
