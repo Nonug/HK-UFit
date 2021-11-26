@@ -13,6 +13,37 @@ import {
 } from "native-base"
 import { useState, useEffect } from "react";
 import { MaterialCommunityIcons, FontAwesome5 } from '@expo/vector-icons';
+import * as SecureStore from 'expo-secure-store';
+
+async function PostFacilities (usersArray, facilityPrimaryId){
+    var googleUserId;
+    var userId;
+    try {
+        googleUserId = await SecureStore.getItemAsync('userId');
+        googleUserId = JSON.parse(googleUserId);
+
+        for (var user in usersArray){
+            if (usersArray[user].id == googleUserId ){
+                userId = usersArray[user].user_id;
+            }
+        }
+    
+        try{
+            const url = "https://groupproject26.top/api/facilities/post-reservation/"
+            + userId + '/' + facilityPrimaryId;
+    
+            let response = await fetch(url, {method: 'POST'});
+            let responseJson = await response.json();
+            return responseJson;
+        } catch (e) {
+            console.error(e);
+        }
+    } catch (error) {
+        console.error(error);
+    }
+
+    return null;
+}
 
 function GetUserNameById(usersArray, userId){
     for (var user in usersArray){
@@ -72,7 +103,6 @@ function Occupy(props){
                 });
                 let occupyObj = await response.json();
                 setOccupyData(occupyObj.data);
-                console.log(occupyObj.data);
                 setLoading(false);
             } catch (error) {
                 console.error(error);
@@ -87,7 +117,6 @@ function Occupy(props){
                 });
                 let usersObj = await response.json();
                 setUsersData(usersObj.data);
-                console.log(usersObj.data);
                 setUsersLoading(false);
             } catch (error) {
                 console.error(error);
@@ -106,7 +135,6 @@ function Occupy(props){
                             return (
                                 <>
                                     <HStack
-                                        key={item.id}
                                         alignItems='center'
                                     >
                                         <Text
@@ -133,10 +161,28 @@ function Occupy(props){
                                             }
                                         </Text>
                                         <Button
+                                            isDisabled={ item.occupy_user_id == null ? false : true }
                                             textAlign='center'
                                             size="xs"
                                             h="6"
                                             mt='1'
+                                            ml='3'
+                                            variant="subtle"
+                                            onPress={() => {
+                                                PostFacilities(usersData, item.id).then((postResponse) => {
+                                                    if (postResponse != null){
+                                                        props.navigation.navigate({
+                                                            name: "FindFacilities",
+                                                            params: {
+                                                                showInfo: true,
+                                                                toastStatus: postResponse.status,
+                                                                toastContent: postResponse.explaination
+                                                            }
+                                                        });
+                                                    } else {
+                                                    }
+                                                });
+                                            }}
                                         >
                                             Select
                                         </Button>
@@ -270,7 +316,11 @@ function FacilitiesCard(props){
                                             <Text> {item.facility_name} </Text>
                                         </HStack>
                                         <Divider mt="2"/>
-                                        <Occupy centerId={item.center_id} facilityId={item.facility_id} />
+                                        <Occupy
+                                            centerId={item.center_id}
+                                            facilityId={item.facility_id}
+                                            navigation={props.navigation}
+                                        />
                                     </VStack>
                                     
                                 </Box>
@@ -292,7 +342,10 @@ export function AvaliableScreen({ route, navigation }) {
                 <Center mt="4">
                     <HeaderCard id={gymId} />
                     <Divider w="90%" my="4"/>
-                    <FacilitiesCard id={gymId} />
+                    <FacilitiesCard
+                        id={gymId}
+                        navigation={navigation}
+                    />
                 </Center>
             </NativeBaseProvider>
         </>

@@ -1,6 +1,10 @@
 import * as React from "react";
 import { NativeBaseProvider, HStack,
-    Text, Button, Box, Center, Image, Divider, VStack } from "native-base";
+    Text, Button, Box, Center, Image, Divider, VStack,
+    IconButton,
+    CloseIcon,
+    Alert
+} from "native-base";
 import { useState, useEffect } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
@@ -92,6 +96,7 @@ export function ScorllMenu({ navigation }){
                                                 h="8"
                                                 w="50"
                                                 size="sm"
+                                                variant="subtle"
                                                 onPress={
                                                     () => {
                                                         navigation.navigate("Avaliable Facilities", {
@@ -115,16 +120,46 @@ export function ScorllMenu({ navigation }){
     );
 }
 
-export function Facilities({ navigation }){
-    return (
-        <NativeBaseProvider>
-            <Center mt="4">
-                <HeaderCard />
-                <Divider w="90%" mt="4" thickness="2" />
-                <ScorllMenu navigation={navigation}/>
-            </Center>
+export function Facilities({ route, navigation }){
 
-        </NativeBaseProvider>
+    return (
+        <>
+            <NativeBaseProvider>
+                { route.params != null && route.params.showInfo == true ? (
+                        <Alert w="100%" status={route.params.toastStatus}>
+                            <VStack space={2} flexShrink={1} w="100%">
+                                <HStack flexShrink={1} space={2} justifyContent="space-between">
+                                    <HStack space={2} flexShrink={1}>
+                                    <Alert.Icon mt="1" />
+                                    <Text fontSize="md" color="coolGray.800">
+                                        {route.params.toastContent}
+                                    </Text>
+                                    </HStack>
+                                    <IconButton
+                                        variant="unstyled"
+                                        icon={<CloseIcon size="3" color="coolGray.600" />}
+                                        onPress={() => {
+                                            console.log("set Params");
+                                            navigation.setParams({
+                                                showInfo: false,
+                                                toastStatus: null,
+                                                toastContent: null
+                                            });
+                                        }}
+                                    />
+                                </HStack>
+                            </VStack>
+                        </Alert>
+                ) : null}
+                <Center mt="4">
+
+                    <HeaderCard />
+                    <Divider w="90%" mt="4" thickness="2" />
+                    <ScorllMenu navigation={navigation}/>
+                </Center>
+
+            </NativeBaseProvider>
+        </>
     );
 }
 
@@ -137,7 +172,10 @@ export default function FacilitiesScreen({ navigation }) {
                 initialRouteName="FindFacilities"
                 headerShown = 'false'
             >
-                <Stack.Screen name="Avaliable Facilities" component={AvaliableScreen}/>
+                <Stack.Screen
+                    name="Avaliable Facilities"
+                    component={AvaliableScreen}
+                />
                 <Stack.Screen
                     name="FindFacilities"
                     component={Facilities}
