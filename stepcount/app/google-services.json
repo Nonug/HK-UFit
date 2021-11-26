@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "229468382772",
+    "project_id": "stepcount-1b150",
+    "storage_bucket": "stepcount-1b150.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229468382772:android:c7d66f3860d451a00bcc61",
+        "android_client_info": {
+          "package_name": "hk.hkucs.stepcount"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "229468382772-8aqhs360rp7r11kj91rk212a65fg4pov.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-whx-seMNzPy6GtD1j2axGo9lDyhTFB8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "229468382772-8aqhs360rp7r11kj91rk212a65fg4pov.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
