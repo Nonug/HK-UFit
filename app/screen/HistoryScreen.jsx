@@ -66,7 +66,7 @@ export default function WorkoutHistory({ route }) {
               </Center>
             );
           }}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.id.toString()}
         />
       </NativeBaseProvider>
     </>

@@ -8,7 +8,7 @@ import ProgressScreen from "../screen/ProgressScreen";
 const Stack = createStackNavigator();
 
 const ProgressNavigator = () => (
-  <Stack.Navigator screenOptions={{ headerShown: true, mode: "modal" }}>
+  <Stack.Navigator screenOptions={{ headerShown: true, presentation: "modal" }}>
     <Stack.Screen name={Routes.PROGRESS} component={ProgressScreen} />
     <Stack.Screen
       name={Routes.HISTORY}

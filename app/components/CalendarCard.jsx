@@ -13,15 +13,19 @@ import {
 
 export default function CalendarCard({ props }) {
   // Extract the dates in Workout History and select them
-  const selected = props.reduce(function (obj, key) {
-    obj[key.date] = {
-      selected: true,
-      disableTouchEvent: true,
-      selectedColor: "orange",
-      // selectedTextColor:'white',
-    };
-    return obj;
-  }, {});
+  let selected = {};
+  // Check if props is empty
+  if (Object.keys(props).length > 0) {
+    selected = props.reduce(function (obj, key) {
+      obj[key["date"]] = {
+        selected: true,
+        disableTouchEvent: true,
+        selectedColor: "orange",
+        // selectedTextColor:'white',
+      };
+      return obj;
+    }, {});
+  }
 
   return (
     <Calendar

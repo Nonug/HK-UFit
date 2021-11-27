@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   NativeBaseProvider,
   Text,
@@ -15,21 +15,36 @@ import { Pedometer } from "expo-sensors";
 import StepCount from "../components/StepCount";
 import Routes from "../navigation/routes";
 
+async function GetHistory() {
+  try {
+    // var userId = await SecureStore.getItemAsync("userId");
+    // userId = JSON.parse(userId);
+
+    let result = await fetch(
+      "https://groupproject26.top/api/progress/get-progress-history"
+    );
+    let resultJson = await result.json();
+    return resultJson;
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 export default function ProgressScreen({ navigation }) {
-  // TODO: Populate the selected state with the
+  // TODO: Populate the selected state with the dates
   const [selected, setSelected] = useState(null);
 
-  // Sample format of the workout history of a user.
-  // Move this to database?
-  let history = [
-    { id: "1", date: "2021-11-20", routine_id: "full_1" },
-    { id: "2", date: "2021-11-21", routine_id: "up_1" },
-    { id: "3", date: "2021-11-22", routine_id: "low_1" },
-    { id: "4", date: "2021-11-23", routine_id: "low_1" },
-    { id: "5", date: "2021-11-24", routine_id: "low_1" },
-    { id: "6", date: "2021-11-25", routine_id: "low_1" },
-    { id: "7", date: "2021-11-26", routine_id: "low_1" },
-  ];
+  // TODO: Create a history context to replace props passing
+  const [isLoading, setLoading] = useState(true);
+  const [history, setHistory] = useState([]);
+
+  useEffect(() => {
+    GetHistory()
+      .then((record) => {
+        setHistory(record.data);
+      })
+      .then(setLoading(false));
+  }, []);
 
   return (
     <>
@@ -49,15 +64,17 @@ export default function ProgressScreen({ navigation }) {
         <Box>
           <Box bg="white" _text={{ fontSize: "lg" }} justifyContent="center">
             <MenuItem
-              onPress={() => navigation.navigate(Routes.HISTORY, history)}
+              onPress={() =>
+                navigation.navigate(Routes.HISTORY, isLoading ? {} : history)
+              }
               data={{
                 id: "WorkoutHist",
                 func: "Workout History",
-                componentName: "person",
+                componentName: "assessment",
               }}
             />
 
-            <CalendarCard props={history}></CalendarCard>
+            <CalendarCard props={isLoading ? {} : history}></CalendarCard>
           </Box>
         </Box>
       </NativeBaseProvider>
