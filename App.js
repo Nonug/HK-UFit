@@ -7,6 +7,7 @@ import SplashScreen from "./app/screen/SplashScreen";
 import Main from "./app/screen/Main";
 import { XHttp } from 'react-native-easy-app';
 import "react-native-gesture-handler";
+import {Toast} from "react-native-toast-message/lib/src/Toast";
 
 const Stack = createStackNavigator();
 
@@ -128,6 +129,7 @@ const App = () => {
                     )}
                 </Stack.Navigator>
             </NavigationContainer>
+            <Toast />
         </AuthContext.Provider>
     );
 }

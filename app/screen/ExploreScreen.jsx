@@ -16,7 +16,7 @@ import RadioButton from "../components/RadioButton";
 import RoutineList from "../components/RoutineList";
 import Routes from "../navigation/routes";
 
-export default function Explore({ navigation }) {
+export default function ExploreScreen({ navigation }) {
   // Routine category hook
   const [option, setOption] = useState(null);
   const buttons = [
@@ -39,13 +39,17 @@ export default function Explore({ navigation }) {
                   <RoutineCard
                     props={item}
                     onPress={() =>
-                      navigation.navigate(Routes.ROUTINE_DETAILS, item)
+                      navigation.navigate(
+                        Routes.ROUTINE_DETAILS,
+                        item,
+                        navigation
+                      )
                     }
                   />
                 );
               }
             }}
-            keyExtractor={(item) => item.title}
+            keyExtractor={(item) => item.id}
           />
         </Center>
       </NativeBaseProvider>

@@ -1,8 +1,11 @@
 const Routes = Object.freeze({
+  ROUTINE_NAV: "Routine Navigator",
   EXPLORE_ROUTINES: "Explore Routines",
   ROUTINE_DETAILS: "Routine Details",
-  SOCIAL: "Social",
+  PROGRESS_NAV: "Progress Navigator",
   PROGRESS: "Progress",
+  HISTORY: "Completed Workouts",
+  SOCIAL: "Social",
   //   ACCOUNT: "Account",
   //   LISTING_EDIT: "ListingEdit",
   //   LOGIN: "Login",

@@ -15,6 +15,7 @@ import {
     ScrollView
 } from "native-base";
 import { GivenNameText } from "../components/InfoText";
+import Routes from "../navigation/routes";
 
 export const Cards = ({ navigation }) => {
     return (
@@ -70,7 +71,7 @@ export const Cards = ({ navigation }) => {
                 <VStack mt="4" mx="4" maxW="90%" space="2">
                     <HStack alignItems="center">
                         <Pressable w="50%" h="120" p="1" onPress={() => {
-                                    navigation.navigate('Progress');
+                                    navigation.navigate(Routes.PROGRESS_NAV);
                                 }}>
                             <Image
                                 h="100%"
@@ -125,7 +126,7 @@ export const Cards = ({ navigation }) => {
                             </Center>
                         </Pressable>
                         <Pressable w="50%" h="120" p="1" onPress={() => {
-                                    navigation.navigate('Routines');
+                                    navigation.navigate(Routes.ROUTINE_NAV);
                                 }}>
                             <Image
                                 h="100%"

@@ -17,14 +17,26 @@ import {
 import RoutineCard from "../components/RoutineCard";
 import RadioButton from "../components/RadioButton";
 import RoutineList from "../components/RoutineList";
+import { LongPressGestureHandler } from "react-native-gesture-handler";
+import Routes from "../navigation/routes";
+import Toast from "react-native-toast-message";
 
-export default function RoutineDetails({ route }) {
-  const { _id, videoID, title } = route.params;
+export default function RoutineDetails({ route, navigation }) {
+  const { id, videoID, title, calories } = route.params;
+
+  const pressHandler = () => {
+    Toast.show({
+      type: "success",
+      text1: "Well Done! 🏆",
+      text2: `You have finished a workout and burnt ${calories}kcal calories! 💪`,
+    });
+    navigation.navigate(Routes.PROGRESS_NAV);
+  };
 
   return (
     <>
       <NativeBaseProvider>
-        {/* <Center>{title}</Center> */}
+        <Center>{title}</Center>
 
         <VStack>
           <Center>
@@ -45,7 +57,9 @@ export default function RoutineDetails({ route }) {
               />
             </Box>
 
-            <Button size="lg">Finish Workout</Button>
+            <Button size="lg" onPress={() => pressHandler()}>
+              Finish Workout
+            </Button>
           </Center>
         </VStack>
       </NativeBaseProvider>

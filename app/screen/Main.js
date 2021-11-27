@@ -8,11 +8,11 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import HomeScreen from './HomeScreen';
 import FacilitiesScreen from './FacilitiesScreen';
-import ProgressScreen from './ProgressScreen';
 import SocialScreen from './SocialScreen';
 import SettingsScreen from './SettingsScreen';
 
 import RoutineNavigator from "../navigation/RoutineNavigator";
+import ProgressNavigator from "../navigation/ProgressNavigator";
 import Routes from "../navigation/routes";
 
 const Tab = createBottomTabNavigator();
@@ -57,8 +57,8 @@ export default Main = () => {
                 }}
             />
             <Tab.Screen
-                name="Progress"
-                component={ProgressScreen}
+                name={Routes.PROGRESS_NAV}
+                component={ProgressNavigator}
                 options={{
                     title: "Progress Monitoring",
                     tabBarLabel: "Progress",
@@ -83,7 +83,7 @@ export default Main = () => {
                 }}
             />
             <Tab.Screen 
-                name="Routines"
+                name={Routes.ROUTINE_NAV}
                 component={RoutineNavigator}
                 options={{
                     title: "Routines",
