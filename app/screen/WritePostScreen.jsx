@@ -92,7 +92,7 @@ function PostTextArea({navigation}){
                                     refresh: true
                                 });
                             } else {
-
+                                console.log('Failure');
                             }
                         });
                     }}

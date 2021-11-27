@@ -78,12 +78,13 @@ export default Main = () => {
                 options={{
                     title: "Social",
                     tabBarLabel: "Social",
+                    headerShown: false,
                     tabBarIcon: ({ color, size }) => (
                         <Ionicons name="people" color={color} size={size} />
                     ),
                 }}
             />
-            <Tab.Screen 
+            <Tab.Screen
                 name={Routes.ROUTINE_NAV}
                 component={RoutineNavigator}
                 options={{
