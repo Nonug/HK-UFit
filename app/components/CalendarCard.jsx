@@ -12,15 +12,25 @@ import {
 } from "native-base";
 
 export default function CalendarCard({ props }) {
+  // Extract the dates in Workout History and select them
+  const selected = props.reduce(function (obj, key) {
+    obj[key.date] = {
+      selected: true,
+      disableTouchEvent: true,
+      selectedColor: "orange",
+      // selectedTextColor:'white',
+    };
+    return obj;
+  }, {});
+
   return (
     <Calendar
-      max
+      // Max amount of months allowed to scroll to the past. Default = 50
+      pastScrollRange={50}
+      // Max amount of months allowed to scroll to the future. Default = 50
+      futureScrollRange={1}
       // Handler which gets executed on day press. Default = undefined
       onDayPress={(day) => {
-        console.log("selected day", day);
-      }}
-      // Handler which gets executed on day long press. Default = undefined
-      onDayLongPress={(day) => {
         console.log("selected day", day);
       }}
       // Month format in calendar title. Formatting values: http://arshaw.com/xdate/#Formatting
@@ -35,12 +45,9 @@ export default function CalendarCard({ props }) {
       onPressArrowRight={(addMonth) => addMonth()}
       // Disable all touch events for disabled days. can be override with disableTouchEvent in markedDates
       disableAllTouchEventsForDisabledDays={true}
-      // Replace default month and year title with custom one. the function receive a date as parameter
-      // renderHeader={(date) => {
-      //   /*Return JSX*/
-      // }}
       // Enable the option to swipe between months. Default = false
       enableSwipeMonths={true}
+      markedDates={selected}
     />
   );
 }

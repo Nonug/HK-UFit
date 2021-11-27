@@ -54,7 +54,7 @@ const Menu = () => {
             <FlatList
                 data={data}
                 renderItem={({ item }) => (
-                    <MenuItem onPress={console.log("hey")} data={item}/>
+                    <MenuItem onPress={() => console.log(item.func + " was pressed")} data={item}/>
                 )}
                 keyExtractor={(item) => item.id}
             />

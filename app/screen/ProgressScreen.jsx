@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import {
   NativeBaseProvider,
   Text,
@@ -15,40 +16,26 @@ import StepCount from "../components/StepCount";
 import Routes from "../navigation/routes";
 
 export default function ProgressScreen({ navigation }) {
-  // const permissions = [
-  //   {
-  //     kind: Fitness.PermissionKinds.Steps,
-  //     access: Fitness.PermissionAccesses.Write,
-  //   },
-  // ];
+  // TODO: Populate the selected state with the
+  const [selected, setSelected] = useState(null);
 
-  // const end = new Date();
-  // const start = new Date();
-  // start.setDate(end.getDate() - 1);
+  // Sample format of the workout history of a user.
+  // Move this to database?
+  let history = [
+    { id: "1", date: "2021-11-20", routine_id: "full_1" },
+    { id: "2", date: "2021-11-21", routine_id: "up_1" },
+    { id: "3", date: "2021-11-22", routine_id: "low_1" },
+    { id: "4", date: "2021-11-23", routine_id: "low_1" },
+    { id: "5", date: "2021-11-24", routine_id: "low_1" },
+    { id: "6", date: "2021-11-25", routine_id: "low_1" },
+    { id: "7", date: "2021-11-26", routine_id: "low_1" },
+  ];
 
-  // Fitness.isAuthorized(permissions)
-  //   .then((authorized) => {
-  //     console.log(authorized);
-  //     Fitness.subscribeToSteps();
-  //   })
-  //   .catch((error) => {
-  //     // Do something
-  //     console.log(error);
-  //   });
   return (
     <>
       <NativeBaseProvider>
-        <Box>Your achievement today:</Box>
+        {/* <Box>Your achievement today:</Box>
         <HStack justifyContent="space-between" margin="5">
-          <Box
-            paddingX="2"
-            rounded="lg"
-            bg="amber.100"
-            _text={{ fontSize: "3xl" }}
-          >
-            {/* <StepCount></StepCount> */}
-            Step count
-          </Box>
           <Box
             paddingX="2"
             rounded="lg"
@@ -57,12 +44,12 @@ export default function ProgressScreen({ navigation }) {
           >
             Calories Burnt
           </Box>
-        </HStack>
+        </HStack> */}
 
         <Box>
           <Box bg="white" _text={{ fontSize: "lg" }} justifyContent="center">
             <MenuItem
-              onPress={navigation.navigate(Routes.HISTORY)}
+              onPress={() => navigation.navigate(Routes.HISTORY, history)}
               data={{
                 id: "WorkoutHist",
                 func: "Workout History",
@@ -70,7 +57,7 @@ export default function ProgressScreen({ navigation }) {
               }}
             />
 
-            <CalendarCard></CalendarCard>
+            <CalendarCard props={history}></CalendarCard>
           </Box>
         </Box>
       </NativeBaseProvider>

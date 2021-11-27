@@ -62,6 +62,7 @@ export default Main = () => {
                 options={{
                     title: "Progress Monitoring",
                     tabBarLabel: "Progress",
+                    headerShown: false,
                     tabBarIcon: ({ color, size }) => (
                         <Ionicons
                             name="checkmark-circle-outline"

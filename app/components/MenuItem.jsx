@@ -24,19 +24,10 @@ export default function MenuItem({ data, onPress }) {
   //     func: "Preferences",
   //     componentName: "settings",
   // },
+
   return (
-    <Pressable
-      onPress={() => {
-        onPress;
-      }}
-    >
-      <Box
-        borderBottomWidth="1"
-        borderColor="coolGray.200"
-        pl="4"
-        pr="5"
-        py="2"
-      >
+    <Box borderBottomWidth="1" borderColor="coolGray.200" pl="4" pr="5" py="2">
+      <Pressable onPress={onPress}>
         <HStack space={3} justifyContent="space-between">
           <Icon
             as={MaterialIcons}
@@ -55,7 +46,7 @@ export default function MenuItem({ data, onPress }) {
             color="coolGray.800"
           ></Icon>
         </HStack>
-      </Box>
-    </Pressable>
+      </Pressable>
+    </Box>
   );
 }
