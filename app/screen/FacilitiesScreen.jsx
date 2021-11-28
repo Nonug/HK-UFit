@@ -12,7 +12,7 @@ import {
   IconButton,
   CloseIcon,
   Alert,
-  FlatList,
+  ScrollView,
 } from "native-base";
 import { useState, useEffect } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -21,7 +21,7 @@ import { AvaliableScreen } from "./Facilities/AvaliableFacilities";
 
 export const HeaderCard = () => {
   return (
-    <Box bgColor="#020202" w="90%" h="150" mx="4" rounded="lg">
+    <Box bgColor="#020202" w="95%" h="100" mx="4" rounded="lg">
       <Image
         h="100%"
         rounded="lg"
@@ -67,7 +67,7 @@ export function ScrollMenu({ navigation }) {
               <Box
                 key={item.id}
                 bgColor="#ffffff"
-                w="90%"
+                w="95%"
                 h="110"
                 rounded="lg"
                 shadow="5"
@@ -85,8 +85,8 @@ export function ScrollMenu({ navigation }) {
                     }}
                     alt="image"
                   />
-                  <VStack space={2} position="absolute" left="120" top="3">
-                    <Text>{item.name}</Text>
+                  <VStack space={2} position="absolute" left="110" top="3">
+                    <Text bold>{item.name}</Text>
                     <Text fontSize="10">{item.location}</Text>
                     <Button
                       h="8"
@@ -143,11 +143,13 @@ export function Facilities({ route, navigation }) {
             </VStack>
           </Alert>
         ) : null}
-        <Center mt="4">
-          <HeaderCard />
-          <Divider w="90%" mt="4" thickness="2" />
-          <ScrollMenu navigation={navigation} />
-        </Center>
+        <ScrollView>
+          <Center mt="4">
+            <HeaderCard />
+            <Divider w="90%" mt="4" thickness="2" />
+            <ScrollMenu navigation={navigation} />
+          </Center>
+        </ScrollView>
       </NativeBaseProvider>
     </>
   );
