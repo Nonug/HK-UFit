@@ -32,11 +32,11 @@ export default function MenuItem({ data, onPress }) {
           <Icon
             as={MaterialIcons}
             name={data.componentName}
-            color="coolGray.800"
+            color={data.color || "coolGray.800"}
           />
           <VStack>
             <Center pt="1">
-              <Text color="coolGray.800">{data.func}</Text>
+              <Text color={"coolGray.800"}>{data.func}</Text>
             </Center>
           </VStack>
           <Spacer />

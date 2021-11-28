@@ -71,6 +71,7 @@ export default function ProgressScreen({ navigation }) {
                 id: "WorkoutHist",
                 func: "Workout History",
                 componentName: "assessment",
+                color: "teal.500",
               }}
             />
 
