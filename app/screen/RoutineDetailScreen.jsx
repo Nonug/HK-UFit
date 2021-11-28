@@ -36,8 +36,7 @@ export default function RoutineDetails({ route, navigation }) {
     });
 
     // New entry of workout history, id based on unix timestamp
-
-    // TODO: Append this to the WorkoutHistory.json
+    // TODO: POST this using API
     var record = {
       id: moment().format("X"),
       date: moment().format("DD/MM/YYYY"), // Maybe redundant

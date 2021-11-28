@@ -14,6 +14,7 @@ import MenuItem from "../components/MenuItem";
 import { Pedometer } from "expo-sensors";
 import StepCount from "../components/StepCount";
 import Routes from "../navigation/routes";
+import Toast from "react-native-toast-message";
 
 async function GetHistory() {
   try {
@@ -31,9 +32,6 @@ async function GetHistory() {
 }
 
 export default function ProgressScreen({ navigation }) {
-  // TODO: Populate the selected state with the dates
-  const [selected, setSelected] = useState(null);
-
   // TODO: Create a history context to replace props passing
   const [isLoading, setLoading] = useState(true);
   const [history, setHistory] = useState([]);
@@ -45,6 +43,14 @@ export default function ProgressScreen({ navigation }) {
       })
       .then(setLoading(false));
   }, []);
+
+  // Show toasts when updating history
+  useEffect(() => {
+    const toast = isLoading
+      ? { type: "info", text1: "Loading workout history..." }
+      : { type: "success", text1: "Loading finished ✔" };
+    Toast.show(toast);
+  }, [history]);
 
   return (
     <>

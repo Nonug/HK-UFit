@@ -15,6 +15,7 @@ const ProgressNavigator = () => (
       component={WorkoutHistory}
       options={({ route }) => ({
         headerShown: Platform.OS === "android" ? true : false,
+        unmountOnBlur: true,
         //title: route.params.title,
       })}
     />

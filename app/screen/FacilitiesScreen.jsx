@@ -18,6 +18,7 @@ import { useState, useEffect } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { AvaliableScreen } from "./Facilities/AvaliableFacilities";
+import Toast from "react-native-toast-message";
 
 export const HeaderCard = () => {
   return (
@@ -57,6 +58,15 @@ export function ScrollMenu({ navigation }) {
     };
     GetData();
   }, []);
+
+  // Show toasts when updating gymData
+  useEffect(() => {
+    console.log(isLoading);
+    const toast = isLoading
+      ? { type: "info", text1: "Loading facilities..." }
+      : { type: "success", text1: "Loading finished ✔" };
+    Toast.show(toast);
+  }, [isLoading]);
 
   return (
     <>

@@ -29,6 +29,8 @@ export default function CalendarCard({ props }) {
 
   return (
     <Calendar
+      // loading indicator
+      displayLoadingIndicator
       // Max amount of months allowed to scroll to the past. Default = 50
       pastScrollRange={50}
       // Max amount of months allowed to scroll to the future. Default = 50
@@ -38,7 +40,7 @@ export default function CalendarCard({ props }) {
         console.log("selected day", day);
       }}
       // Month format in calendar title. Formatting values: http://arshaw.com/xdate/#Formatting
-      monthFormat={"yyyy MMM"}
+      monthFormat={"MMM yyyy"}
       // Handler which gets executed when visible month changes in calendar. Default = undefined
       onMonthChange={(month) => {
         console.log("month changed", month);

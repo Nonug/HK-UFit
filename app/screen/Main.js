@@ -23,6 +23,7 @@ export default Main = () => {
         <Tab.Navigator
             screenOptions={{
                 tabBarActiveTintColor: "#06b6d4",
+                tabBarHideOnKeyboard: true,
             }}
         >
             <Tab.Screen
@@ -91,6 +92,7 @@ export default Main = () => {
                     title: "Routines",
                     tabBarLabel: "Routines",
                     headerShown: false,
+                    unmountOnBlur: true,
                     tabBarIcon: ({ color, size }) => (
                         <Ionicons name="barbell" color={color} size={size} />
                     ),
