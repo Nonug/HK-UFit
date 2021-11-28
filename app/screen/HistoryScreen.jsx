@@ -31,6 +31,16 @@ export default function WorkoutHistory({ route }) {
     return matches[0];
   };
 
+  const getColorById = (id) => {
+    if (id.includes("full")) {
+      return "cyan.500";
+    } else if (id.includes("low")) {
+      return "orange.500";
+    } else {
+      return "violet.500";
+    }
+  };
+
   return (
     <>
       <NativeBaseProvider>
@@ -47,7 +57,11 @@ export default function WorkoutHistory({ route }) {
                   marginBottom="2"
                   justifyContent="space-between"
                 >
-                  <Box bg="cyan.500" rounded="full" padding="1">
+                  <Box
+                    bg={getColorById(item.routine_id)}
+                    rounded="full"
+                    padding="1"
+                  >
                     <Icon
                       as={MaterialCommunityIcons}
                       size="sm"

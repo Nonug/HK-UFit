@@ -8,13 +8,14 @@ import {
   Box,
   Center,
   Pressable,
+  ScrollView,
 } from "native-base";
 import CalendarCard from "../components/CalendarCard";
 import MenuItem from "../components/MenuItem";
-import { Pedometer } from "expo-sensors";
-import StepCount from "../components/StepCount";
+// import StepCount from "../components/StepCount";
 import Routes from "../navigation/routes";
 import Toast from "react-native-toast-message";
+import WorkoutChart from "../components/WorkoutChart";
 
 async function GetHistory() {
   try {
@@ -64,26 +65,30 @@ export default function ProgressScreen({ navigation }) {
             _text={{ fontSize: "3xl" }}
           >
             Calories Burnt
+            <StepCount />
           </Box>
         </HStack> */}
+        <ScrollView>
+          <WorkoutChart />
 
-        <Box>
-          <Box bg="white" _text={{ fontSize: "lg" }} justifyContent="center">
-            <MenuItem
-              onPress={() =>
-                navigation.navigate(Routes.HISTORY, isLoading ? {} : history)
-              }
-              data={{
-                id: "WorkoutHist",
-                func: "Workout History",
-                componentName: "assessment",
-                color: "teal.500",
-              }}
-            />
+          <Box>
+            <Box bg="white" _text={{ fontSize: "lg" }} justifyContent="center">
+              <MenuItem
+                onPress={() =>
+                  navigation.navigate(Routes.HISTORY, isLoading ? {} : history)
+                }
+                data={{
+                  id: "WorkoutHist",
+                  func: "Workout History",
+                  componentName: "assessment",
+                  color: "teal.500",
+                }}
+              />
 
-            <CalendarCard props={isLoading ? {} : history}></CalendarCard>
+              <CalendarCard props={isLoading ? {} : history}></CalendarCard>
+            </Box>
           </Box>
-        </Box>
+        </ScrollView>
       </NativeBaseProvider>
     </>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { Pedometer } from "expo-sensors";
+import { Pedometer } from "expo-legacy";
 
 export default class StepCount extends React.Component {
   state = {

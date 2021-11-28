@@ -61,7 +61,7 @@ export function ScrollMenu({ navigation }) {
 
   // Show toasts when updating gymData
   useEffect(() => {
-    console.log(isLoading);
+    // console.log(isLoading);
     const toast = isLoading
       ? { type: "info", text1: "Loading facilities..." }
       : { type: "success", text1: "Loading finished ✔" };
