@@ -23,7 +23,7 @@ import { FontAwesome5, Feather } from "@expo/vector-icons";
 
 const HeaderCardRanking = ({navigation}) => {
     return (
-        <Box bgColor="#020202" w="90%" h="100" mx="4" rounded="lg">
+        <Box bgColor="#020202" w="50%" h="100" rounded="lg">
             <Pressable
                 onPress={() => {
                     navigation.navigate('Daily Ranking');
@@ -82,13 +82,14 @@ const PostsList = ({route, navigation}) => {
                 let response = await fetch("https://groupproject26.top/api/social/get-all-posts");
                 let responseJson = await response.json();
                 console.log(responseJson.data);
-                setPostsData(responseJson.data);
-                setLoading(false);
+                return responseJson.data;
             } catch (error) {
                 console.error(error);
             }
         };
-        bootstrapAsync();
+        bootstrapAsync().then((responseData) => {
+            setPostsData(responseData);
+        }).then(setLoading(false));
     }, []);
 
     if (route.params != null && route.params.refresh == true) {
@@ -99,21 +100,28 @@ const PostsList = ({route, navigation}) => {
     }
 
     return (<>
+        <HStack
+            w="90%"
+            space={1}
+        >   
+            <HeaderCardRanking navigation={navigation}/>
+            <Box bgColor="#020202" w="50%" h="100" rounded="lg">
+                <Pressable
+                    onPress={() => {
+                        navigation.navigate('Write Post');
+                    }}
+                >
+                    <Image
+                        h="100%"
+                        rounded="lg"
+                        source={require("../assets/images/Post_Banner.png")}
+                        alt="banner-fitness"
+                    ></Image>
+                </Pressable>
+            </Box>
+        </HStack>
 
-        <Box bgColor="#020202" w="90%" h="100" mt='2' mx="4" rounded="lg">
-            <Pressable
-                onPress={() => {
-                    navigation.navigate('Write Post');
-                }}
-            >
-                <Image
-                    h="100%"
-                    rounded="lg"
-                    source={require("../assets/images/Post_Banner.png")}
-                    alt="banner-fitness"
-                ></Image>
-            </Pressable>
-        </Box>
+
 
         <Divider w="90%" mt="4" thickness="2" />
 
@@ -135,9 +143,7 @@ const PostsList = ({route, navigation}) => {
                                         source={{
                                             uri: item.user_avatar_url,
                                         }}
-                                    >
-                                    RS
-                                    </Avatar>
+                                    />
                                     <VStack>
                                         <HStack
                                             w="280"
@@ -176,7 +182,7 @@ export function SocialMainPage({ route, navigation }) {
             <NativeBaseProvider>
                 <ScrollView>
                     <Center mt="4">
-                            <HeaderCardRanking navigation={navigation}/>
+                            
                             <PostsList route={route} navigation={navigation}/>
                     </Center>
                 </ScrollView>
