@@ -12,7 +12,7 @@ Cross-platform fitness App for HKU students, created in React Native.
 - Ng Wai Chung, 3035484255
 
 
-## Set-up
+## Instruction
 
 Sign-in with Google can works well in a development environment with Expo Go. However, it cannot get response successfully in an Android standalone. Thus, a fake user "Chan Tai Man" is used for the standalone cases. If you want to fully explore the functions provide by HKUFit, follow the instructions below
 
