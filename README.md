@@ -27,3 +27,19 @@ Fitness App created in React Native
 	- [x] History record
 - [x] Workout tutorial videos
 	- [x] Categories
+
+## Notice
+
+Sign-in with Google can works well in a development environment with Expo Go. However, it cannot get response successfully in an Android standalone. Thus, a fake user "Chan Tai Man" is used for the standalone cases. If you want to fully explore the functions provide by HKUFit, follow the instructions below
+
+### Running with Expo
+Node.js 16.13.0, git, Expo CLI, Yarn
+Make sure you added Android Emulator to $PATH
+
+Open a terminal and run
+```
+$ Yarn install
+$ Yarn android
+```
+
+
