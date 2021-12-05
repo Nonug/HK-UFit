@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ExpoApp2",
-    "slug": "ExpoApp2",
+    "name": "hkufit",
+    "slug": "hkufit",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./app/assets/icon.png",
@@ -24,11 +24,11 @@
         "foregroundImage": "./app/assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.hku.cs.xschen.expoapp2"
+      "package": "com.hku.cs.hkufit"
     },
     "web": {
       "favicon": "./app/assets/favicon.png"
     },
-    "scheme": "expoapp2"
+    "scheme": "hkufit"
   }
 }

@@ -40,6 +40,7 @@ async function PostWorkoutRecord(record) {
       });
       // Ok up til here
       let responseJSON = await response.json(); // JSON Parse error: Unrecognized token '<'
+      console.log(responseJSON);
       return responseJSON;
     } catch (error) {
       // // Catched
@@ -67,12 +68,12 @@ export default function RoutineDetails({ route, navigation }) {
     // New entry of workout history, id based on unix timestamp
     var record = {
       id: moment().format("X"),
-      date: moment().format("DD/MM/YYYY"), // Maybe redundant
+      date: moment().format("YYYY-MM-DD"), // Maybe redundant
       routine_id: id,
     };
 
     PostWorkoutRecord(record).then((response) => {
-      if (response == true) {
+      if (response.status == 'success') {
         navigation.navigate(Routes.PROGRESS_NAV, {
           refresh: true,
         });

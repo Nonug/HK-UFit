@@ -7208,6 +7208,11 @@ unset-value@^1.0.0:
     has-value "^0.3.1"
     isobject "^3.0.0"
 
+uri-scheme@^1.0.107:
+  version "1.0.107"
+  resolved "https://registry.yarnpkg.com/uri-scheme/-/uri-scheme-1.0.107.tgz#cfda5940ab8a47e14b41557c3dc8c6351762bad3"
+  integrity sha512-nPrLFCaqvC8Z/W22mMOEgFF5QIqG9/L5Yt+0S+dzdlsoebNqR/MEFJSO7JTsencyf4P+2Y+M4UV8Xzvd4jR9kg==
+
 urix@^0.1.0:
   version "0.1.0"
   resolved "https://registry.npmjs.org/urix/-/urix-0.1.0.tgz"

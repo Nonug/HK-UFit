@@ -28,7 +28,9 @@ export default function App() {
     //initial useAuthRequest class
     const [request, response, promptAsync] = Google.useAuthRequest({
         expoClientId:
-            "981969536391-4p959o3c3o4tchq5iac4peje9ll0sgm5.apps.googleusercontent.com",
+            "981969536391-fhga3gm8dqhapckq9u8vjq29csb1vsf4.apps.googleusercontent.com",
+        androidClientId:
+            "981969536391-n50vmi86t2c3m80m8njbn7clttm8p74v.apps.googleusercontent.com",
     });
 
     //React Hook useEffect
@@ -37,7 +39,7 @@ export default function App() {
             const { authentication } = response;
             signIn({ authentication });
         }
-    }, [response]);
+    }, [ response ]);
 
     return (
         <NativeBaseProvider>
@@ -79,7 +81,9 @@ export default function App() {
                                 Forget Password?
                             </Link>
                         </FormControl>
-                        <Button mt="2" colorScheme="indigo">
+                        <Button
+                            isDisabled = 'true'
+                            mt="2" colorScheme="indigo">
                             Sign in
                         </Button>
                         <Button

@@ -54,7 +54,8 @@
     "react-native-youtube-iframe": "^2.2.1",
     "react-navigation": "^4.4.4",
     "styled-components": "^5.3.0",
-    "styled-system": "^5.1.5"
+    "styled-system": "^5.1.5",
+    "uri-scheme": "^1.0.107"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"

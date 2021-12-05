@@ -64,30 +64,86 @@ const App = () => {
     const authContext = React.useMemo(
         () => ({
             signIn: async (authentication) => {
+                /*
+                if (authentication?.authentication?.accessToken == null) {
+                    asyncFetchTestUser = async () => {
+                        let REQUEST_URL =
+                            "http://groupproject26.top/api/get-user-by-id/100000000000000000001";
+                        try {
+                            let response = await fetch(REQUEST_URL, {
+                                method: "GET",
+                            });
+                            let testData = await response.json();
+                            //Store the userId
+                            return testData;
+                        } catch (error) {
+                            console.error(error);
+                        }
+                    };
 
-                //Using SecureStore to store the token from Google
-                await SecureStore.setItemAsync( "userToken", authentication.authentication.accessToken);
+                    asyncFetchTestUser().then((testUserData) => {
+                        var userId = testUserData.id;
+                        var userToken = testUserData.token;
 
-                //Send post to create profile in Laravel
-                //Get id of Google as return
-                let REQUEST_URL = "http://groupproject26.top/api/first-login";
-                let parameters = new FormData();
-                parameters.append("token", authentication.authentication.accessToken);
-                
-                try{
-                    let response = await fetch(REQUEST_URL, { method: "POST", body: parameters});
-                    let userId = await response.json();
-                    //Store the userId
-                    console.log("Set userId here: " + userId);
-                    await SecureStore.setItemAsync( "userId", JSON.stringify(userId));
-                }catch(error){
-                    console.error(error);
-                }
+                        setItemsAsync = async () => {
+                            await SecureStore.setItemAsync(
+                                "userToken",
+                                userToken
+                            );
 
-                dispatch({
-                    type: "SIGN_IN",
-                    token: authentication.authentication.accessToken,
-                });
+                            await SecureStore.setItemAsync(
+                                "userId",
+                                JSON.stringify(userId)
+                            );
+                        };
+
+                        setItemsAsync().then(() => {
+                            dispatch({
+                                type: "SIGN_IN",
+                                token: userToken,
+                            });
+                        });
+
+                    });
+                } else {
+                */
+                    //Using SecureStore to store the token from Google
+                    await SecureStore.setItemAsync(
+                        "userToken",
+                        authentication.authentication.accessToken
+                    );
+
+                    //Send post to create profile in Laravel
+                    //Get id of Google as return
+                    let REQUEST_URL =
+                        "http://groupproject26.top/api/first-login";
+                    let parameters = new FormData();
+                    parameters.append(
+                        "token",
+                        authentication.authentication.accessToken
+                    );
+
+                    try {
+                        let response = await fetch(REQUEST_URL, {
+                            method: "POST",
+                            body: parameters,
+                        });
+                        let userId = await response.json();
+                        //Store the userId
+                        console.log("Set userId here: " + userId);
+                        await SecureStore.setItemAsync(
+                            "userId",
+                            JSON.stringify(userId)
+                        );
+                    } catch (error) {
+                        console.error(error);
+                    }
+
+                    dispatch({
+                        type: "SIGN_IN",
+                        token: authentication.authentication.accessToken,
+                    });
+                //}
             },
             signOut: async() => {
                 await SecureStore.deleteItemAsync("userToken");
