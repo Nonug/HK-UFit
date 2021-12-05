@@ -16,7 +16,7 @@ import {
     HStack,
 } from "native-base";
 import { TokenResponse } from "expo-auth-session";
-import { AuthContext } from "../App"
+import { AuthContext } from "../../App"
 import { AntDesign } from "@expo/vector-icons";
 
 export default function App() {

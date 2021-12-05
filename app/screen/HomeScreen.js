@@ -15,6 +15,7 @@ import {
     ScrollView
 } from "native-base";
 import { GivenNameText } from "../components/InfoText";
+import Routes from "../navigation/routes";
 
 export const Cards = ({ navigation }) => {
     return (
@@ -28,9 +29,10 @@ export const Cards = ({ navigation }) => {
                 borderWidth="1"
                 bgColor="#ffffff"
             >
-                <Box>
-                    <AspectRatio w="100%" ratio={16 / 9}>
+                <Box h="120">
+                    <AspectRatio w="100%" ratio={8 / 3}>
                         <Image
+                        
                             source={{
                                 uri: "https://groupproject26.top/images/banner3.png",
                             }}
@@ -41,13 +43,13 @@ export const Cards = ({ navigation }) => {
                         <GivenNameText></GivenNameText>
                     </Center>
                 </Box>
-                <HStack p="4" space={3}>
+                <HStack bg="white" p="4" space={3}>
                     <Stack space={2}>
                         <Heading size="md" ml="-1">
-                            HK-UFit
+                            HKUFit
                         </Heading>
                         <Text fontSize="xs" fontWeight="500" ml="-0.5" mt="-1">
-                            COMP3330 Group Project
+                            COMP3330 Group 26
                         </Text>
                     </Stack>
                     <VStack position="absolute" right="5" top="5">
@@ -70,8 +72,7 @@ export const Cards = ({ navigation }) => {
                 <VStack mt="4" mx="4" maxW="90%" space="2">
                     <HStack alignItems="center">
                         <Pressable w="50%" h="120" p="1" onPress={() => {
-                                    // navigation.navigate();
-                                    alert("Progress Monitoring")
+                                    navigation.navigate(Routes.PROGRESS_NAV);
                                 }}>
                             <Image
                                 h="100%"
@@ -82,15 +83,14 @@ export const Cards = ({ navigation }) => {
                             <Center
                                 position="absolute"
                                 top="8"
-                                px="5"
+                                px="4"
                                 py="1.5"
                             >
-                                <Text color="white">Progress Monitoring</Text>
+                                <Text bold color="white">Progress Monitoring</Text>
                             </Center>
                         </Pressable>
                         <Pressable w="50%" h="120" p="1" onPress={() => {
-                                    // navigation.navigate();
-                                    alert("Facilities Booking")
+                                    navigation.navigate('Facilities');
                                 }}>
                             <Image
                                 h="100%"
@@ -101,10 +101,10 @@ export const Cards = ({ navigation }) => {
                             <Center
                                 position="absolute"
                                 top="8"
-                                px="5"
+                                px="4"
                                 py="1.5"
                             >
-                                <Text color="white">
+                                <Text bold color="white">
                                     Facilities{"\n"}Booking
                                 </Text>
                             </Center>
@@ -112,8 +112,7 @@ export const Cards = ({ navigation }) => {
                     </HStack>
                     <HStack alignItems="center">
                         <Pressable w="50%" h="120" p="1" onPress={() => {
-                                    // navigation.navigate();
-                                    alert("Social Networking")
+                                    navigation.navigate('Social');
                                 }}>
                             <Image
                                 h="100%"
@@ -121,15 +120,14 @@ export const Cards = ({ navigation }) => {
                                 alt="card1"
                                 source={require("../assets/images/card3.png")}
                             />
-                            <Center position="absolute" top="8" px="5" py="1.5">
-                                <Text color="white">
+                            <Center position="absolute" top="8" px="4" py="1.5">
+                                <Text bold color="white">
                                     Social{"\n"}Networking
                                 </Text>
                             </Center>
                         </Pressable>
                         <Pressable w="50%" h="120" p="1" onPress={() => {
-                                    // navigation.navigate();
-                                    alert("Routines")
+                                    navigation.navigate(Routes.ROUTINE_NAV);
                                 }}>
                             <Image
                                 h="100%"
@@ -140,10 +138,10 @@ export const Cards = ({ navigation }) => {
                             <Center
                                 position="absolute"
                                 top="10"
-                                px="5"
+                                px="4"
                                 py="1.5"
                             >
-                                <Text color="white">Routines</Text>
+                                <Text bold color="white">Routines</Text>
                             </Center>
                         </Pressable>
                     </HStack>
@@ -159,7 +157,7 @@ export default function Home({ navigation }) {
     return (
         <>
             <NativeBaseProvider>
-                <Cards/> 
+                <Cards navigation={navigation}/> 
             </NativeBaseProvider>
         </>
     );

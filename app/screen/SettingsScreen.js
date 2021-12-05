@@ -16,9 +16,10 @@ import {
     Icon,
     Pressable
 } from "native-base";
-import { AuthContext } from "../App";
+import { AuthContext } from "../../App";
 import * as SecureStore from "expo-secure-store";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import MenuItem from "../components/MenuItem";
 
 const Menu = () => {
     const data = [
@@ -53,40 +54,7 @@ const Menu = () => {
             <FlatList
                 data={data}
                 renderItem={({ item }) => (
-                    <Pressable
-                        onPress={() => {
-                            console.log("Hello");
-                        }}
-                    >
-                        <Box
-                            borderBottomWidth="1"
-                            borderColor="coolGray.200"
-                            pl="4"
-                            pr="5"
-                            py="2"
-                        >
-                            <HStack space={3} justifyContent="space-between">
-                                <Icon
-                                    as={MaterialIcons}
-                                    name={item.componentName}
-                                    color="coolGray.800"
-                                />
-                                <VStack>
-                                    <Center pt="1">
-                                        <Text color="coolGray.800">
-                                            {item.func}
-                                        </Text>
-                                    </Center>
-                                </VStack>
-                                <Spacer />
-                                <Icon
-                                    as={Ionicons}
-                                    name={"arrow-forward-sharp"}
-                                    color="coolGray.800"
-                                ></Icon>
-                            </HStack>
-                        </Box>
-                    </Pressable>
+                    <MenuItem onPress={() => console.log(item.func + " was pressed")} data={item}/>
                 )}
                 keyExtractor={(item) => item.id}
             />

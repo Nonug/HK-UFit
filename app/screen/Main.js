@@ -1,15 +1,19 @@
 import React from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import HomeScreen from './HomeScreen'
-import FacilitiesScreen from './FacilitiesScreen';
-import ProgressScreen from './ProgressScreen';
-import SocialScreen from './SocialScreen';
-import SettingScreen from "./SettingsScreen";
 import {
     MaterialIcons,
     Ionicons,
     MaterialCommunityIcons,
 } from "@expo/vector-icons";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+import HomeScreen from './HomeScreen';
+import FacilitiesScreen from './FacilitiesScreen';
+import SocialScreen from './SocialScreen';
+import SettingsScreen from './SettingsScreen';
+
+import RoutineNavigator from "../navigation/RoutineNavigator";
+import ProgressNavigator from "../navigation/ProgressNavigator";
+import Routes from "../navigation/routes";
 
 const Tab = createBottomTabNavigator();
 
@@ -19,6 +23,7 @@ export default Main = () => {
         <Tab.Navigator
             screenOptions={{
                 tabBarActiveTintColor: "#06b6d4",
+                tabBarHideOnKeyboard: true,
             }}
         >
             <Tab.Screen
@@ -42,6 +47,7 @@ export default Main = () => {
                 options={{
                     title: "Facilities Booking",
                     tabBarLabel: "Facility",
+                    headerShown: false,
                     tabBarIcon: ({ color, size }) => (
                         <MaterialIcons
                             name="sports-tennis"
@@ -52,11 +58,12 @@ export default Main = () => {
                 }}
             />
             <Tab.Screen
-                name="Progress"
-                component={ProgressScreen}
+                name={Routes.PROGRESS_NAV}
+                component={ProgressNavigator}
                 options={{
                     title: "Progress Monitoring",
                     tabBarLabel: "Progress",
+                    headerShown: false,
                     tabBarIcon: ({ color, size }) => (
                         <Ionicons
                             name="checkmark-circle-outline"
@@ -72,14 +79,28 @@ export default Main = () => {
                 options={{
                     title: "Social",
                     tabBarLabel: "Social",
+                    headerShown: false,
                     tabBarIcon: ({ color, size }) => (
                         <Ionicons name="people" color={color} size={size} />
                     ),
                 }}
             />
             <Tab.Screen
+                name={Routes.ROUTINE_NAV}
+                component={RoutineNavigator}
+                options={{
+                    title: "Routines",
+                    tabBarLabel: "Routines",
+                    headerShown: false,
+                    unmountOnBlur: true,
+                    tabBarIcon: ({ color, size }) => (
+                        <Ionicons name="barbell" color={color} size={size} />
+                    ),
+                }}
+            />
+            <Tab.Screen
                 name="Settings"
-                component={SettingScreen}
+                component={SettingsScreen}
                 options={{
                     title: "Settings",
                     tabBarLabel: "Settings",
