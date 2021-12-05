@@ -25,8 +25,8 @@ Add Android Emulator to $PATH
 
 Open a terminal and run
 ```
-$ Yarn
-$ Yarn android
+$ yarn
+$ yarn android
 ```
 Then the app will launched in the emulator
 
@@ -35,6 +35,7 @@ Then the app will launched in the emulator
 Significant files in the project
 ```
 .
+├── hkufit_submission           # APK of the Android App
 ├── App.js                      # Entry of the App
 ├── app.json                    # Config of the React Native Project
 ├── package.json                # Node.js Packages
@@ -50,8 +51,13 @@ Significant files in the project
         ├── ProgressScreen.js   # Progress function page of the App
         ...
 ```
+### Frontend & Backend Separaion
+
+Access the Home Page of Laravel: https://groupproject26.top
+![structure](https://groupproject26.top/images/structure_compressed.png)
 
 ## Demo
+
 <img src="demo/home.jpg" alt="drawing" style="width:300px;"/>
 <img src="demo/booking.jpg" alt="drawing" style="width:300px;"/>
 <img src="demo/progress.jpg" alt="drawing" style="width:300px;"/>
