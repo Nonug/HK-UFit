@@ -32,6 +32,7 @@ Then the app will launched in the emulator
 Significant files in the project
 ```
 .
+├── hkufit_submission           # APK of the Android App
 ├── App.js                      # Entry of the App
 ├── app.json                    # Config of the React Native Project
 ├── package.json                # Node.js Packages
@@ -47,4 +48,8 @@ Significant files in the project
         ├── ProgressScreen.js   # Progress function page of the App
         ...
 ```
+### Frontend & Backend Separaion
 
+Access the Home Page of Laravel: https://groupproject26.top
+
+![structure](https://groupproject26.top/images/structure_compressed.png)
