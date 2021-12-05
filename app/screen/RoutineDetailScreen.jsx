@@ -22,12 +22,41 @@ import Routes from "../navigation/routes";
 import Toast from "react-native-toast-message";
 import moment from "moment";
 
+async function PostWorkoutRecord(record) {
+  // console.log("Content to be post: " + record.date);
+
+  try {
+    let REQUEST_URL =
+      "https://groupproject26.top/api/progress/post-progress-history";
+    let parameters = new FormData();
+    // parameters.append("id", record.id);
+    parameters.append("date", record.date);
+    parameters.append("routine_id", record.routine_id);
+
+    try {
+      let response = await fetch(REQUEST_URL, {
+        method: "POST",
+        body: parameters,
+      });
+      // Ok up til here
+      let responseJSON = await response.json(); // JSON Parse error: Unrecognized token '<'
+      return responseJSON;
+    } catch (error) {
+      // // Catched
+      // console.log("here");
+      console.log(error);
+    }
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 export default function RoutineDetails({ route, navigation }) {
   const { id, videoID, title, calories } = route.params;
 
   const pressHandler = () => {
-    console.log(moment().format("X")); // Unix timestamp
-    console.log(moment().format("DD/MM/YYYY"));
+    // console.log(moment().format("X")); // Unix timestamp
+    // console.log(moment().format("DD/MM/YYYY"));
 
     Toast.show({
       type: "success",
@@ -36,14 +65,24 @@ export default function RoutineDetails({ route, navigation }) {
     });
 
     // New entry of workout history, id based on unix timestamp
-    // TODO: POST this using API
     var record = {
       id: moment().format("X"),
       date: moment().format("DD/MM/YYYY"), // Maybe redundant
       routine_id: id,
     };
 
-    navigation.navigate(Routes.PROGRESS_NAV);
+    PostWorkoutRecord(record).then((response) => {
+      if (response == true) {
+        navigation.navigate(Routes.PROGRESS_NAV, {
+          refresh: true,
+        });
+        console.log(response);
+      } else {
+        console.log("Failure to POST workout history");
+        console.log(response.status);
+        console.log(response);
+      }
+    });
   };
 
   return (

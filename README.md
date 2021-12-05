@@ -10,19 +10,20 @@ Fitness App created in React Native
 
 ## Todo
 - [x] LoginScreen
-- [ ] Registration
+- [x] Registration
 	- [x] Google
 	- [ ] Email
 - [ ] Settings
 
-- [ ] Facilities booking
-	- [ ] database
-	- [ ] logic
-- [ ] Social Function
-	- [ ] Leaderboard
-	- [ ] Social Media Sharing 
-- [ ] Progress Check
-	- [ ] Dataviz
-	- [ ] Calendar
-- [ ] Workout tutorial videos
-	- [ ] Categories
+- [x] Facilities booking
+	- [x] database
+	- [x] logic
+- [x] Social Function
+	- [x] Leaderboard
+	- [x] Social Media Sharing 
+- [x] Progress Check
+	- [x] Dataviz
+	- [x] Calendar
+	- [x] History record
+- [x] Workout tutorial videos
+	- [x] Categories
