@@ -25,8 +25,8 @@ Add Android Emulator to $PATH
 
 Open a terminal and run
 ```
-$ Yarn
-$ Yarn android
+$ yarn
+$ yarn android
 ```
 Then the app will launched in the emulator
 
@@ -53,15 +53,13 @@ Significant files in the project
 ```
 ### Frontend & Backend Separaion
 
-<<<<<<< HEAD
 Access the Home Page of Laravel: https://groupproject26.top
-
 ![structure](https://groupproject26.top/images/structure_compressed.png)
-=======
+
 ## Demo
+
 <img src="demo/home.jpg" alt="drawing" style="width:300px;"/>
 <img src="demo/booking.jpg" alt="drawing" style="width:300px;"/>
 <img src="demo/progress.jpg" alt="drawing" style="width:300px;"/>
 <img src="demo/social.jpg" alt="drawing" style="width:300px;"/>
 <img src="demo/routine.jpg" alt="drawing" style="width:300px;"/>
->>>>>>> 861affeb99530fda5397e49460e41b1430fe682a
