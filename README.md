@@ -1,14 +1,17 @@
-# HK-UFit
-Fitness App created in React Native
+#  Comp3330 Group 26 - <img src="app/assets/adaptive-icon.png" alt="drawing" style="width:40px;"/> HKU Fit 
 
-## Comp3330 Group 26
+![](demo/poster.jpg)
+
+Cross-platform fitness App for HKU students, created in React Native.
+
 - Chan Tsz Hei, 3035692060
 - Chen Xing Sheng, 3035535547
 - Chiu Kwun Hung, 3035460302
 - Choi Yik Ho, 3035684415
 - Ng Wai Chung, 3035484255
 
-## Notice
+
+## Set-up
 
 Sign-in with Google can works well in a development environment with Expo Go. However, it cannot get response successfully in an Android standalone. Thus, a fake user "Chan Tai Man" is used for the standalone cases. If you want to fully explore the functions provide by HKUFit, follow the instructions below
 
@@ -48,3 +51,9 @@ Significant files in the project
         ...
 ```
 
+## Demo
+<img src="demo/home.jpg" alt="drawing" style="width:300px;"/>
+<img src="demo/booking.jpg" alt="drawing" style="width:300px;"/>
+<img src="demo/progress.jpg" alt="drawing" style="width:300px;"/>
+<img src="demo/social.jpg" alt="drawing" style="width:300px;"/>
+<img src="demo/routine.jpg" alt="drawing" style="width:300px;"/>
