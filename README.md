@@ -2,6 +2,7 @@
 
 ![](demo/poster.jpg)
 
+
 Cross-platform fitness App for HKU students, created in React Native.
 
 - Chan Tsz Hei, 3035692060
@@ -57,7 +58,7 @@ Access the Home Page of Laravel: https://groupproject26.top
 ![structure](https://groupproject26.top/images/structure_compressed.png)
 
 ## Demo
-
+[![demo video](https://img.youtube.com/vi/VrNuLtlvgms/maxresdefault.jpg))](https://youtu.be/VrNuLtlvgms)
 <img src="demo/home.jpg" alt="drawing" style="width:300px;"/>
 <img src="demo/booking.jpg" alt="drawing" style="width:300px;"/>
 <img src="demo/progress.jpg" alt="drawing" style="width:300px;"/>
