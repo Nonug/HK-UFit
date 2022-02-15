@@ -55,7 +55,7 @@ Significant files in the project
 ### Frontend & Backend Separaion
 
 Access the Home Page of Laravel: https://groupproject26.top
-![structure](https://groupproject26.top/images/structure_compressed.png)
+![structure](demo/Solution.png)
 
 ## Demo
 [![demo video](https://img.youtube.com/vi/VrNuLtlvgms/maxresdefault.jpg))](https://youtu.be/VrNuLtlvgms)
